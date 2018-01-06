@@ -2,7 +2,10 @@ package com.ubs.opsit.interviews;
 
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
+import org.junit.Before;
 import org.junit.Test;
+
+import com.ubs.opsit.interviews.BerlinClock;
 
 import static com.ubs.opsit.interviews.support.BehaviouralTestEmbedder.aBehaviouralTestRunner;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -16,6 +19,11 @@ public class BerlinClockFixture {
     private TimeConverter berlinClock;
     private String theTime;
 
+    @Before
+    public void setUp(){
+		berlinClock = new BerlinClock();
+	}
+    
     @Test
     public void berlinClockAcceptanceTests() throws Exception {
         aBehaviouralTestRunner()
